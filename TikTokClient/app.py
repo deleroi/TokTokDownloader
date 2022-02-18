@@ -52,9 +52,10 @@ def index():
 def get_video():
     if request.method == 'POST':
         url = request.form['video_url']
+        id = (url.split('/')[5]).split('?')[0]
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect(('localhost', 9090))
-        sock.send(url.encode())
+        sock.send(id.encode())
         file_name = sock.recv(100).decode()
         file_size = sock.recv(100).decode()
 
