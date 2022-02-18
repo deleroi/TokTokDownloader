@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block img %}
+	<img name="slideshow">
+{% endblock %}
+
+{% block button %}
+	<form action="/new" method="post" class="get_video">
+		<p><input type="submit" value="Watch new video"></p>
+	</form>
+{% endblock %}
+
+
+{% block script %}
+ <script>
+	var i = 0;
+	var images = {{ z|safe }};
+	var time = 35;
+
+	function slideShow() {
+		document.slideshow.src = images[i]
+			if (i < images.length - 1) {
+				i++;
+				} else {
+					i=0;
+			    }
+		setTimeout("slideShow()", time);
+	}
+
+	window.onload = slideShow;
+</script>
+
+{% endblock %}

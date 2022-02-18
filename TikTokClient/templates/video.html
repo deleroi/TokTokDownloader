@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block img %}
+	<div><img name="slideshow" alt="Waiting video"></div>
+{% endblock %}
+
+{% block button %}
+	<form action="/" method="post" class="get_video">
+		<p><label>Enter video URL</label><input type="text" name="video_url" value="" required/></p>
+		<p><input type="submit" value="Get video"></p>
+	</form>
+{% endblock %}
